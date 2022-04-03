@@ -1,0 +1,16 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    position: relative;
+    border: 1px solid black;
+    border-radius: 8px;
+    height: 100%;  /* or as desired */
+    width: 100%;  /* This means "100% of the width of its container", the .col-md-8 */
+  }
