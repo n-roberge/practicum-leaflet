@@ -1,0 +1,91 @@
+{
+  "name": "georaster-layer-for-leaflet",
+  "version": "3.7.1",
+  "description": "Display GeoTIFFs and soon other types of raster on your Leaflet Map",
+  "source": "src/georaster-layer-for-leaflet.ts",
+  "main": "dist/georaster-layer-for-leaflet.min.js",
+  "unpkg": "dist/georaster-layer-for-leaflet.min.js",
+  "types": "dist/georaster-layer-for-leaflet.d.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:babel": "babel src/georaster-layer-for-leaflet.ts -o dist/georaster-layer-for-leaflet.bundle.js",
+    "build:main": "tsc",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:webpack:lite": "LITE=true webpack",
+    "build:webpack": "webpack",
+    "build": "npm run clean && npm run build:babel && npm run build:webpack && npm run build:webpack:lite && npm run build:main",
+    "dev": "concurrently \"npm run serve\" \"webpack --watch\" ",
+    "format": "prettier --write ./src/georaster-layer-for-leaflet.ts webpack.config.js && npm run fix",
+    "check-types": "tsc",
+    "fix": "eslint ./src/georaster-layer-for-leaflet.ts --fix",
+    "lint": "eslint ./src/georaster-layer-for-leaflet.ts",
+    "prep-legacy": "./prep-legacy.sh",
+    "test": "echo 'to set library, run dev and serve and open the html files in test folder on localhost'",
+    "validate": "npm run lint && npm run format && npm run check-types",
+    "serve": "HOST=0.0.0.0 http-server --cors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeoTIFF/georaster-layer-for-leaflet.git"
+  },
+  "keywords": [
+    "geotiff",
+    "georaster",
+    "gis",
+    "leaflet",
+    "maps",
+    "raster",
+    "rasters",
+    "geoprocessing",
+    "pixels",
+    "tiff"
+  ],
+  "author": "Daniel Dufour and Steve Peyton",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/GeoTIFF/georaster-layer-for-leaflet/issues"
+  },
+  "homepage": "https://github.com/GeoTIFF/georaster-layer-for-leaflet#readme",
+  "dependencies": {
+    "chroma-js": "^1.4.0",
+    "geo-extent": "^0.7.0",
+    "proj4-fully-loaded": "^0.0.4",
+    "regenerator-runtime": "^0.13.5",
+    "snap-bbox": "^0.2.0",
+    "utm-utils": "^0.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-template-literals": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.12.13",
+    "@types/chroma-js": "^2.1.3",
+    "@types/leaflet": "^1.5.21",
+    "@types/node": "^14.14.19",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.11.1",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "http-server": "^0.12.3",
+    "null-loader": "^4.0.1",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.1.3",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0"
+  },
+  "peerDependencies": {
+    "georaster": "*",
+    "leaflet": "^1.7.1"
+  },
+  "files": [
+    "dist/**",
+    "types/**",
+    "src/**",
+    "georaster-layer-for-leaflet*"
+  ]
+}
