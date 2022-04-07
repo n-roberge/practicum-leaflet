@@ -32,20 +32,26 @@ $.getJSON("data/acled.geojson", function(data) {
   var controlLayers = L.control.layers().addTo(map);
 
 //IMR data
+function getColor(d) {
+  return d > 100 ? '#4A1486' :
+         d > 75  ? '#6A51A3' :
+         d > 50  ? '#807DBA' :
+         d > 25  ? '#9E9AC8' :
+         d > 10  ? '#BCBDDC' :
+                   '#DADAEB' ;
+};
 
-// let geojsonData = 'map/data/Africa_IMR_FeaturesToJSON.json'
+function style(feature) {
+  return{
+    fillColor: getColor(feature.properties.IMR),
+    weight: 1,
+    opacity: 1,
+    color: 'white',
+    dashArray: '2',
+    fillOpacity: 0.7
+  };
+};
 
-// L.choropleth(geojsonData, {
-// 	valueProperty: 'IMR', // which property in the features to use
-// 	scale: ['white', 'red'], // chroma.js scale - include as many as you like
-// 	steps: 5, // number of breaks or steps in range
-// 	mode: 'q', // q for quantile, e for equidistant, k for k-means
-// 	style: {
-// 		color: '#fff', // border color
-// 		weight: 2,
-// 		fillOpacity: 0.8
-// 	},
-// 	onEachFeature: function(feature, layer) {
-// 		layer.bindPopup(feature.properties.value)
-// 	}
-// }).addTo(map)
+$.getJSON("data/Africa_IMR_FeaturesToJSON.geojson", function(data){
+  L.geoJSON(data, {style: style}).addTo(map);
+});
