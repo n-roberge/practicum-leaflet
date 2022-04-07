@@ -55,3 +55,39 @@ function style(feature) {
 $.getJSON("data/Africa_IMR_FeaturesToJSON.geojson", function(data){
   L.geoJSON(data, {style: style}).addTo(map);
 });
+
+function highlightFeature(e) {
+  var layer = e.target;
+
+  layer.setStyle({
+    weight: 5,
+    color: '#666',
+    dashArray: '',
+    fillOpacity: 0.7
+  });
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    layer.bringToFront();
+  };
+  info.update(layer.feature.properties);
+};
+
+function resetHighlight(e) {
+  geojson.resetStyle(e.target);
+  info.update();
+};
+
+var info = L.control();
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML = '<h4>Infant Mortality Rate (IMR)</h4>' +  (props ?
+        '<b>' + props.IMR + 'per 100k': 'Hover over an area');
+};
+
+info.addTo(map);
