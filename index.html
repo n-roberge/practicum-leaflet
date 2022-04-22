@@ -1,40 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Drought and Water Security</title>
-
-    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/stylesheet.css">
-
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Security</title>
+    <style>
+        html,
+        body,
+        #map {
+        padding: 0;
+        margin: 0;
+        height: 96.65%;
+        width: 100%;
+      }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
+    <link rel="stylesheet" href = "css\style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
 
 </head>
-
 <body>
-    <div class="row">
-        <div class="col-md-4">
-          <p>Lorem ipsum dolor sit amet</p>
+    <header>
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Home</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                        
+                        </button>
+                        <a class="navbar-brand" href="#home">Water Security</a>
+                        </div>
+                        <div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#about"> ABOUT</a></li>
+                                <li><a href="#map"> MAP</a></li>
+                                <li><a href="#moreInfo">MORE INFO</a></li>
+                                <!-- <i class="fa fa-solid fa-earth-africa"></i>  -->
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right social">
+                                <li><a href="https://www.linkedin.com/in/nicholas-roberge/"><i class="fa fa-lg fa-linkedin"></i></a></li>
+                                <li><a href="mailto:nr.cartography@gmail.com"><i class="fa fa-lg fa-envelope"></i></a></li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                </nav> 
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </header>
+    <!-- splash page -->
+    <div  data-spy="scroll" data-target=".navbar" data-offset="50"></div>
+    <div id="intro" style="height: 100%;">
+        <section id = "home" style="padding-top: 40px;">
+            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="centered col-md-10">
+                        <!-- Heading -->
+                        <h2 class="display-4 font-weight-bold white-text pt-8 mb-2">watersecurity.org</h2>
+                        <!-- Divider -->
+                        <hr class="hr-light">
+                        <!-- Description -->
+                        <h4 class="white-text my-4">Water security in Africa</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- /splash page -->
+
+    <!-- section: about -->
+    <section id = "about" style="padding-top: 40px; height: 100%;">
+        <h1 class= "text-center">About</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="info-heading text-center">A Growing Global Challenge</h3>
+                    <p class="info-text">As climate change continues strain nations, poorer countries are disproportionately effected by food and water security. Regions that depend on rain-fed agriculture will be particularly vulnerable in the next 20 years. </p>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Water Security is National Security</h3>
+                    <img src="./img/dodclimateRisk.PNG"/>
+                    <p class="text-center">Department of Defense Climate Risk Analysis (2021)</p>
+                </div>
+            </div>
         </div>
-    
-        <div class="col-md-8">
-          <div id="map" src = "map/index.html"></div>
+    </section>
+    <!-- /section: about -->
+
+    <!-- section: map -->
+    <div class="container-fluid" style="height: 100%; padding-top: 40px;">
+        <div class ="row">
+            <div id ="mapAid" class="col-sm-4">
+                <h1 class = "info-heading text-center">Mapping Water Security Vulnerability</h1>
+                <p class="info-text">As climate change continues strain nations, poorer countries are disproportionately effected by food and water security. Regions that depend on rain-fed agriculture will be particularly vulnerable in the next 20 years.</p>
+            </div>
+            <div class="col-lg-8">
+                <section id="map">
+                    <iframe id = "viewDiv" src = "map/index.html"></iframe>
+                </section>
+            </div>
         </div>
     </div>
+    <!-- /section: map -->
+
+    <!-- section: more info -->
+    <section id = "moreInfo" style="padding-top: 40px">
+        <h1 class= "text-center" style="padding-bottom: 1em;">More Information</h1>
+    </section>
+    <div class="container mt-4 d-flex justify-content-center" style="padding-bottom: 2em;">
+        <div class="row g-0">
+            <div class="col-md-4 border-right">
+                <div class="cards">
+                    <a href="https://ua-gwsc.org/">
+                    <div class="first bg-white p-4 text-center"> <img src="./img/gwscLogo.png" />
+                        <h5 class="card-heading">Global Water Security Center</h5>
+                        <p class="card-text">GWSC is an applied research and operational center commissioned to respond to our nation's need for water and environmental security insights.</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 border-right">
+                <div class="cards">
+                    <a href="https://www.unwater.org/">
+                    <div class="first bg-white p-4 text-center"> <img src="./img/unLogo.png" />
+                        <h5 class="card-heading">United Nations Water</h5>
+                        <p class="card-text">UN-Water coordinates the efforts of UN entities and international organizations working on water and sanitation issues.</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 border-right">
+                <div class="cards">
+                    <a href="https://www.globalwaters.org/">
+                    <div class="first bg-white p-4 text-center"> <img src="./img/usaid.png" />
+                        <h5 class="card-heading">Globalwaters.org (USAID)</h5>
+                        <p class="card-text">Fostering global knowledge and collaboration for sustainable water, sanitation, and hygiene access for all, and providing water practitioners with the latest news, learnings, and resources from USAID and their partners.</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <!-- /section: more info -->
+    
 </body>
- 
+<footer style="text-align: center; padding-top: 15px;">
+    <p>© Nicholas Roberge   Last updated: March 2022</p>
+
+<script src="https://kit.fontawesome.com/41c0ca7116.js" crossorigin="anonymous"></script>
+<script src="https://js.arcgis.com/4.21/"></script>
+
 </html>

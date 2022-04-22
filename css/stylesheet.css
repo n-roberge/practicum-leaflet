@@ -1,1 +1,81 @@
-#map { height: 180px; }
+body {
+    background-color: #292726;
+    color: #c0c0c0;
+    font-family: 'Manrope', sans-serif;
+    margin-top: 50px;
+}
+
+#intro {
+  background: url("../img/scarce-water-africa.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.top-nav-collapse {
+    background-color: #292726;
+  }
+  @media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+      background-color: #292726;
+    }
+  }
+  @media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+      background-color: #292726;
+    }
+  }
+
+  .center {
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+/* Map */
+#viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 800px;
+    width: 67%;
+  }
+
+.cards {
+  transition: all 0.2s ease;
+  cursor: pointer
+}
+
+.cards:hover {
+  /* box-shadow: 5px 6px 6px 2px #e9ecef; */
+  transform: scale(1.1)
+}
+
+.card-heading{
+  font-weight: bold;
+  color: white;
+}
+
+.card-text{
+  color: rgb(141, 141, 141);
+}
+
+.info-text{
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.info-heading{
+  font-size: 2em;
+  font-weight: bold;
+  color: white;
+}
