@@ -68,12 +68,12 @@
     <!-- splash page -->
     <div  data-spy="scroll" data-target=".navbar" data-offset="50"></div>
     <div id="intro" style="height: 100%;">
-        <section id = "home" style="padding-top: 40px;">
+        <section id = "home" style="padding-top: 50px;">
             <div class="container-fluid d-flex align-items-center justify-content-center h-100">
                 <div class="row d-flex justify-content-center text-center">
                     <div class="centered col-md-10">
                         <!-- Heading -->
-                        <h2 class="display-4 font-weight-bold white-text pt-8 mb-2">watersecurity.org</h2>
+                        <h2 class="display-2 font-weight-bold white-text pt-8 mb-2">WATERSECURITY.org</h2>
                         <!-- Divider -->
                         <hr class="hr-light">
                         <!-- Description -->
@@ -86,13 +86,24 @@
     <!-- /splash page -->
 
     <!-- section: about -->
-    <section id = "about" style="padding-top: 40px; height: 100%;">
-        <h1 class= "text-center">About</h1>
+    <section id = "about" style="padding-top: 40px; height: 75%;">
+        <h1 class= "text-center section-heading">About</h1>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
                     <h3 class="info-heading text-center">A Growing Global Challenge</h3>
-                    <p class="info-text">As climate change continues strain nations, poorer countries are disproportionately effected by food and water security. Regions that depend on rain-fed agriculture will be particularly vulnerable in the next 20 years. </p>
+                    <p class="info-text text-left">As climate change continues to strain nations, poorer countries are disproportionately effected by food and water security. Regions that depend on rain-fed agriculture will be particularly vulnerable in the next 20 years. 
+                    <br>
+                    <br>
+                    Droughts are estimated to be the costliest and most far-reaching natural disasters. Drought management and risk-based approaches to disaster management will be paramount in reducing vulnerability to droughts in the future.
+                    <br>
+                    <br>
+                    In the Horn of Africa alone, 20 million people are facing famine due to drought. In Ethiopia, over 7 million are without sustainable food. And up to 30% of households' herds have died in Somalila in the past year.
+                    
+                    <br>
+                    <br>
+                    The aim of this project is to provide some awareness on initial areas of future study that are of particular interest to stakeholders in water security in Africa.
+                    </p>
                 </div>
                 <div class="col-lg-6">
                     <h3>Water Security is National Security</h3>
@@ -106,11 +117,27 @@
 
     <!-- section: map -->
     <div id = "mapSection" class="container-fluid" style="height: 100%; padding-top: 40px;">
-        <h1 class= "text-center">Mapping Vulnerability</h1>
+        <h1 class= "text-center section-heading" style="padding-bottom: 1em;">Potentially Susceptible Areas in Africa</h1>
         <div class ="row">
             <div id ="mapAid" class="col-sm-4">
                 <h1 class = "info-heading text-center">Mapping Water Security Vulnerability</h1>
-                <p class="info-text">As climate change continues strain nations, poorer countries are disproportionately effected by food and water security. Regions that depend on rain-fed agriculture will be particularly vulnerable in the next 20 years.</p>
+                <p class="info-text">Predicting where conflict may occur is not a hard science. There are a number of factors that could potentially be involved, but this map provides an initial look at where these areas may begin. In this map, crops that could potentially fail due to drought are highlighted. Site selection was based on poverty (measured by infant mortality rate (IMR)), abundance of rainfed crops, and potential drought. Armed conflict and location data (ACLED) has also been included to give greater situational awareness</p>
+                <br>
+                <br>
+                <div class = "text-center" style="margin-bottom: 2em;">
+                    <img src="./img/legend.png"/>
+                </div>
+                
+                <p class="sources"><b>Sources:</b>
+                    <br>
+                    <b>IMR:</b> <a href="https://sedac.ciesin.columbia.edu/data/collection/povmap">Center for International Earth Science Information Network (CIESIN), Socio-Economic Data Center (SEDAC)</a> - high-poverty areas (IMR 50/1000 or greater)
+                    <br>
+                    <b>Rainfed Crops:</b> <a href="https://www.uni-frankfurt.de/45218031/Data_download_center_for_MIRCA2000">Portmann, F. T., Siebert, S. & Döll, P. (2010): MIRCA2000</a> - Global monthly irrigated and rainfed crop areas around the year 2000: A new high-resolution data set for agricultural and hydrological modeling, Global Biogeochemical Cycles, 24, GB 1011, doi:10.1029/2008GB003435.
+                    <br>
+                    <b>Drought:</b> <a href="https://iri.columbia.edu/our-expertise/climate/forecasts/seasonal-climate-forecasts/">International Research Institute for Climate and Society</a> - increased chance of an unusually dry season (35-55%)
+                    <br>
+                    <b>ACLED:</b><a href="https://acleddata.com/#/dashboard"> The Armed Conflict Location & Event Data Project</a> 
+                </p>
             </div>
             <div class="col-lg-8">
                 <section id="map">
@@ -123,7 +150,7 @@
 
     <!-- section: more info -->
     <section id = "moreInfo" style="padding-top: 40px">
-        <h1 class= "text-center" style="padding-bottom: 1em;">More Information</h1>
+        <h1 class= "text-center section-heading" style="padding-bottom: 1em; padding-top: 2em;">Additional Resources</h1>
     </section>
     <div class="container mt-4 d-flex justify-content-center" style="padding-bottom: 2em;">
         <div class="row g-0">
@@ -163,7 +190,7 @@
     
 </body>
 <footer style="text-align: center; padding-top: 15px;">
-    <p>© Nicholas Roberge   Last updated: March 2022</p>
+    <p>© Nicholas Roberge   Last updated: April 2022</p>
 
 <script src="https://kit.fontawesome.com/41c0ca7116.js" crossorigin="anonymous"></script>
 <script src="https://js.arcgis.com/4.21/"></script>

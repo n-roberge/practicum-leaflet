@@ -47,7 +47,7 @@ body {
     padding: 0;
     margin: 0;
     height: 800px;
-    width: 67%;
+    width: 1078px;
   }
 
 .cards {
@@ -77,5 +77,13 @@ body {
 .info-heading{
   font-size: 2em;
   font-weight: bold;
-  color: white;
+  color: rgb(199, 141, 64);
+}
+
+.section-heading{
+  color: rgb(100, 134, 156);
+}
+
+.sources{
+  font-size: .75em
 }
